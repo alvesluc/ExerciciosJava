@@ -19,6 +19,6 @@ public class Motorista {
 	}
 	
 	public void gerarConta() {
-		System.out.format("O total da conta foi: %.2f", ((getGasolina()* 2.5) + getRefri()));
+		System.out.format("O valor da conta foi: %.2f", ((getGasolina()* 2.5) + getRefri()));
 	}
 }
