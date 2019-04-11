@@ -6,6 +6,17 @@ public class Aluno {
 	public float nota2;
 	public float media;
 	
+	public Aluno(String nomeAluno, float primeiranota, float segundanota) {
+		nome = nomeAluno;
+		nota1 = primeiranota;
+		nota2 = segundanota;
+	}
+	
+	public static int aprovado;
+	public static int exame;
+	public static int reprovado;
+	public static float mediaturma;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -33,22 +44,32 @@ public class Aluno {
 	}
 		
 	public float fazerMedia() {
-		System.out.println("A m�dia de " + getNome()
+		System.out.println("A média de " + getNome()
 		+ " foi: " + ((getNota1() + getNota2())/2) );
-		return media = ((getNota1() + getNota2())/2);
+		return Aluno.mediaturma = Aluno.mediaturma + (media = ((getNota1() + getNota2())/2));
 	}
 	
-	public void avalia() {
+	public int avalia() {
 		
 		if(getMedia() >= 7) {
 			System.out.println(getNome() + " foi aprovado.");
+			return Aluno.aprovado = Aluno.aprovado + 1; 
 		}
 		else if(getMedia() > 3 && getMedia() < 7) {
 			System.out.println(getNome() + " vai para o exame.");
+			return Aluno.exame = Aluno.exame + 1;
 		}
 		else {
 			System.out.println(getNome() + " foi reprovado");
+			return Aluno.reprovado = Aluno.reprovado + 1;
 		}
+	}
+	
+	public static void informa() {
+		System.out.println("A quantidade de alunos aprovados: " + Aluno.aprovado);
+		System.out.println("A quantidade de alunos em exame: " + Aluno.exame);
+		System.out.println("A quantidade de alunos reprovados: " + Aluno.reprovado);
+		System.out.println("A média da turma foi de: " + (Aluno.mediaturma/6));
 	}
 
 }
